@@ -6,6 +6,7 @@
 package expenseManager.Model;
 
 import expenseManager.Interfaces.LoadExpensesInterface;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -57,12 +58,10 @@ public class LoadExpenses implements LoadExpensesInterface{
         } catch (ParseException ex) {
             Logger.getLogger(LoadExpenses.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
-        
-        
-        lValue.setText(Double.toString(this.totalValue));
+
+        DecimalFormat valueFormated =  new DecimalFormat();
+        valueFormated.setMaximumFractionDigits(2);
+        lValue.setText(valueFormated.format(this.totalValue));
     }
 
 }
